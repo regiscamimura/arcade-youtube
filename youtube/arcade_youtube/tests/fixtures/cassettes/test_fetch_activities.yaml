@@ -13,7 +13,113 @@ interactions:
       x-goog-api-client:
       - gdcl/2.169.0 gl-python/3.13.3 cred-type/u
     method: GET
-    uri: https://youtube.googleapis.com/youtube/v3/activities?part=snippet%2CcontentDetails&mine=true&maxResults=10&alt=json
+    uri: https://youtube.googleapis.com/youtube/v3/activities?alt=json&maxResults=10&mine=true&part=snippet%2CcontentDetails
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAC/4WQwU7DMAyG730Kq+etBcRpt2pUYpchQXdCHLLESsPSuCTpYEx9d5K0EhNC2in6
+        7S+WP58zgBytJZuv4BxCiJwEhnR/c7uYCh06x2Ss5c/4MaDz0DIByhyZVgLY4Fs0XnHmFRngFkWM
+        TLsC6q8euUcBT1Wg4A4Y52EaeDqgWYAmqcIPooNCIAsUJlm4MraAF0Rove/dqiwFHlFTj9YVkkhq
+        LDh1pUqsP5VOSbNUpvzEfUQ5GUcal72l97BYkc+K6QQuGL6mDPMt/upvZuX1r+M8IZGCOqZMBKWm
+        PdOXPYvMUepFsTqd/KKtafKMQDwVWfU9Ff6BmlOf1mmRCbT5DIzpfZuNnGd+iEb5blvtmsd622zW
+        VVM/RHzMxuwH1VrBt/sBAAA=
+    headers:
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Mon, 19 May 2025 16:03:14 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Origin
+      - X-Origin
+      - Referer
+      WWW-Authenticate:
+      - Bearer realm="https://accounts.google.com/", error="invalid_token"
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - '0'
+    status:
+      code: 401
+      message: Unauthorized
+- request:
+    body: grant_type=refresh_token&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube.readonly
+    headers:
+      accept-encoding:
+      - gzip, deflate
+      content-type:
+      - application/x-www-form-urlencoded
+      user-agent:
+      - Python-httplib2/0.22.0 (gzip)
+      x-goog-api-client:
+      - gl-python/3.13.3 auth/2.40.1 cred-type/u
+    method: POST
+    uri: https://oauth2.googleapis.com/token
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAC/yWQy3KCMAAA736Fw7miIKB4A0SpKAq2gFwyASKPookQjbHTf++o1z3szO5vr98X
+        YJahrgMU/6CzMOsLHMq6CEdGpMT0XjKqQjeppXkKJB7Irb/a5dLKTki2jwIng7GW5CqQkvrB4zA/
+        8XiUrVUWWDormtt2lZPzEjdeenFcyfoELbDo1TzY88TUwIT7U6h4pn0w7UetHtcThTSPnHrNILK1
+        09HbnUN22YR87H89dnOPlU5YadNGwWmx7qxooa1dotcMWsXBNZC9N4Lv/cJ3lrG8qTb1tpbBjQS6
+        U+IasMQ36cAYSZOJ8PGsRndStagD1bN5rOr6i3YZJug5oaSUdLPhkDEmFhgXDYKk6sQMn4bwSssh
+        x1d6TZHYIpjjc8Pf0tdDQPnbYSLYolbo/f0D7GxElGcBAAA=
+    headers:
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Mon, 19 May 2025 16:03:14 GMT
+      Expires:
+      - Mon, 01 Jan 1990 00:00:00 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - scaffolding on HTTPServer2
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Origin
+      - X-Origin
+      - Referer
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - '0'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-length:
+      - '0'
+      user-agent:
+      - (gzip)
+      x-goog-api-client:
+      - gdcl/2.169.0 gl-python/3.13.3 cred-type/u
+    method: GET
+    uri: https://youtube.googleapis.com/youtube/v3/activities?alt=json&maxResults=10&mine=true&part=snippet%2CcontentDetails
   response:
     body:
       string: !!binary |
@@ -65,7 +171,7 @@ interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Sun, 18 May 2025 17:24:21 GMT
+      - Mon, 19 May 2025 16:03:14 GMT
       Server:
       - scaffolding on HTTPServer2
       Transfer-Encoding:

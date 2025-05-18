@@ -10,7 +10,7 @@ dependencies = [
     "google-auth-oauthlib>=1.0.0",
     "google-auth-httplib2>=0.1.0",
 ]
-requires-python = ">=3.8"
+requires-python = ">=3.13"
 
 [tool.hatch.metadata]
 allow-direct-references = true
@@ -36,8 +36,13 @@ description = "Track watch history, subscriptions, and search activity"
 authors = ["regiscamimura <regiscamimura@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.10"
-arcade-ai = "^1.0.5"
+python = "^3.13"
+arcade-sdk = "*"
+google-api-python-client = "^2.0.0"
+google-auth-oauthlib = "^1.0.0"
+fastapi = "^0.109.0"
+uvicorn = "^0.27.0"
+python-multipart = "^0.0.6"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.0"

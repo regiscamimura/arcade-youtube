@@ -1,20 +1,29 @@
 import re
 
 from arcade_youtube.tools.constants import (
-    CONTENT_DETAILS_PATH,
     RESOURCE_ID_PATH,
     SNIPPET_PATH,
-    WATCH_PATH,
 )
 
 
 def format_activity(activity: dict) -> dict:
-    """Format activity data into a clean structure."""
+    """Format a YouTube activity into a standardized structure."""
+    snippet = activity.get("snippet", {})
+    content_details = activity.get("contentDetails", {})
+
+    # Extract video ID from either watch or playlistItem
+    video_id = None
+    if "watch" in content_details:
+        video_id = content_details["watch"].get("videoId")
+    elif "playlistItem" in content_details:
+        video_id = content_details["playlistItem"].get("resourceId", {}).get("videoId")
+
     return {
-        "title": activity.get(SNIPPET_PATH, {}).get("title"),
-        "video_id": activity.get(CONTENT_DETAILS_PATH, {}).get(WATCH_PATH, {}).get("videoId"),
-        "published_at": activity.get(SNIPPET_PATH, {}).get("publishedAt"),
-        "channel_title": activity.get(SNIPPET_PATH, {}).get("channelTitle"),
+        "title": snippet.get("title", ""),
+        "video_id": video_id,
+        "published_at": snippet.get("publishedAt", ""),
+        "channel_title": snippet.get("channelTitle", ""),
+        "description": snippet.get("description", ""),
     }
 
 

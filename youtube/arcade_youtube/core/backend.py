@@ -6,6 +6,18 @@ from googleapiclient.discovery import build
 from .constants import DEFAULT_MAX_RESULTS
 
 
+class YouTubeAPIError(Exception):
+    """Base exception for YouTube API errors."""
+    pass
+
+class YouTubeAPINotEnabledError(YouTubeAPIError):
+    """Raised when YouTube API is not enabled in the project."""
+    def __init__(self) -> None:
+        super().__init__(
+            "YouTube API is not enabled in your Google Cloud project. "
+            "Please enable it at https://console.cloud.google.com/apis/library/youtube.googleapis.com"
+        )
+
 class YouTubeBackend:
     """Low-level YouTube API interactions."""
 
@@ -16,7 +28,7 @@ class YouTubeBackend:
             self.youtube = build("youtube", "v3", credentials=credentials)
         except Exception as e:
             if "API has not been used" in str(e):
-                raise Exception("YouTube API is not enabled in your Google Cloud project. Please enable it at https://console.cloud.google.com/apis/library/youtube.googleapis.com")
+                raise YouTubeAPINotEnabledError() from e
             raise
 
     def _execute_request(self, request):
@@ -29,11 +41,18 @@ class YouTubeBackend:
         max_results: Annotated[int, "Maximum number of activities to fetch"] = DEFAULT_MAX_RESULTS,
     ) -> list[dict]:
         """Fetch user activities (watch history)."""
-        request = self.youtube.activities().list(
-            part="snippet,contentDetails", mine=True, maxResults=max_results
-        )
-        response = self._execute_request(request)
-        return response.get("items", [])
+        try:
+            request = self.youtube.activities().list(
+                part="snippet,contentDetails",
+                mine=True,
+                maxResults=max_results
+            )
+            response = self._execute_request(request)
+            return response.get("items", [])
+        except Exception as e:
+            if "API has not been used" in str(e):
+                raise YouTubeAPINotEnabledError() from e
+            raise
 
     def fetch_subscriptions(
         self,

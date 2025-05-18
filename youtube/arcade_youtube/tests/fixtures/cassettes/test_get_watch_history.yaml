@@ -13,7 +13,7 @@ interactions:
       x-goog-api-client:
       - gdcl/2.169.0 gl-python/3.13.3 cred-type/u
     method: GET
-    uri: https://youtube.googleapis.com/youtube/v3/videos?alt=json&id=nonexistent_video_id_123456789&part=snippet%2CcontentDetails
+    uri: https://youtube.googleapis.com/youtube/v3/activities?alt=json&maxResults=5&mine=true&part=snippet%2CcontentDetails
   response:
     body:
       string: !!binary |
@@ -31,7 +31,7 @@ interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Mon, 19 May 2025 16:03:16 GMT
+      - Mon, 19 May 2025 16:03:17 GMT
       Server:
       - scaffolding on HTTPServer2
       Transfer-Encoding:
@@ -67,12 +67,12 @@ interactions:
   response:
     body:
       string: !!binary |
-        H4sIAAAAAAAC/yWQu5KCMAAAe7/CoT4F4U7UDhDwhQoBFRomYkQMCCRBHjf37zdqu8XO7P72+n0O
-        RhGiNGQ5Rg9u1udaKE6HUFCO3yfWJFIjtKAee6yQ6D2cl8dYBdck3UuXSfnU8RwRzbLjYLOUKzBe
-        DHTBkE7+1rritKCdmrmmLt1MR1tlOMPUUByMpUF3lu3HqBFDAgjWL/Zkl6z2AW1lz14qlijeXbIz
-        Us8SOtd4aAuVhY3X0bGfUnHbAfw8y2ApO+tl2elVto6hFvtr5egDxfGAYS/Mk2glbt0FG2IGJTyM
-        FeBGB4/KTiyMZJn7elWjpkgIomHyapZ+ptM3pVFeoNeEG2MFnfF8XdfDOM/jFMEiocMoz3hYsRvf
-        5hWrzmhIELzkj7T9SN8PQ9Z+HCqCBBGu9/cPnsgqmGcBAAA=
+        H4sIAAAAAAAC/yWQSXKCQAAA73mFxTksoqh4m0AUgwQQleVCDTgssjozBDCVv6fUax+6qvv3bTJh
+        YBwjQkLaFKhm1hNmhKLMQQG4c48O1w0Kiv1ldJa5lvR6mtzmfrKIMLVVqdLOt0+022kCKFy/bw9t
+        cHYNLDiZaPu1b3rqfsTGybJxNlAFHfUhbJWEVS7fuLYPh62I76vKKEWXmOVMwl3kCYHTudtzbOGp
+        fA+GOjaFYgSdQdTqh5V3Y3Gz511lrVjBZIGmKpF1tTGASurr4Og74HByNra29UQjDzdRspB004bX
+        +IsIxbSI7wAI0+WSeX9Uo6HNMSJh/mieSbL8pCRuWvSYkFHakjXP933PpU2Tlgi2OeHipuJhRzN+
+        bDraRYjDCF6auhxf0ufDkI4vxweCGGHm7e8fwWe6IWcBAAA=
     headers:
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
@@ -83,7 +83,7 @@ interactions:
       Content-Type:
       - application/json; charset=utf-8
       Date:
-      - Mon, 19 May 2025 16:03:16 GMT
+      - Mon, 19 May 2025 16:03:17 GMT
       Expires:
       - Mon, 01 Jan 1990 00:00:00 GMT
       Pragma:
@@ -119,13 +119,31 @@ interactions:
       x-goog-api-client:
       - gdcl/2.169.0 gl-python/3.13.3 cred-type/u
     method: GET
-    uri: https://youtube.googleapis.com/youtube/v3/videos?alt=json&id=nonexistent_video_id_123456789&part=snippet%2CcontentDetails
+    uri: https://youtube.googleapis.com/youtube/v3/activities?alt=json&maxResults=5&mine=true&part=snippet%2CcontentDetails
   response:
     body:
       string: !!binary |
-        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
+        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
     headers:
       Alt-Svc:
       - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
@@ -134,7 +152,7 @@ interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Mon, 19 May 2025 16:03:16 GMT
+      - Mon, 19 May 2025 16:03:17 GMT
       Server:
       - scaffolding on HTTPServer2
       Transfer-Encoding:
