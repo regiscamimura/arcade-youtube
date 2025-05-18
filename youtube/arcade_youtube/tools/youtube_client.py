@@ -47,7 +47,7 @@ async def get_watch_time_stats(context: ToolContext) -> dict:
     for activity in activities:
         content_details = activity.get(CONTENT_DETAILS_PATH, {})
         watch_info = content_details.get(WATCH_PATH, {})
-        video_id = watch_info.get('videoId')
+        video_id = watch_info.get("videoId")
 
         if not video_id:
             continue
@@ -57,7 +57,7 @@ async def get_watch_time_stats(context: ToolContext) -> dict:
             continue
 
         video_content = video.get(CONTENT_DETAILS_PATH, {})
-        duration = video_content.get('duration', 'PT0S')
+        duration = video_content.get("duration", "PT0S")
         seconds = parse_duration(duration)
 
         if seconds:
@@ -70,5 +70,5 @@ async def get_watch_time_stats(context: ToolContext) -> dict:
         "total_seconds": total,
         "total_hours": round(total / 3600, 2),
         "video_count": count,
-        "average_duration": round(total / count if count else 0, 2)
+        "average_duration": round(total / count if count else 0, 2),
     }

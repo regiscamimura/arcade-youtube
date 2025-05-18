@@ -7,7 +7,7 @@ from arcade_youtube.tools.youtube_client import (
 )
 
 __all__ = [
-    'get_subscriptions',
-    'get_watch_history',
-    'get_watch_time_stats',
+    "get_subscriptions",
+    "get_watch_history",
+    "get_watch_time_stats",
 ]
