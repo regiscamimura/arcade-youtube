@@ -12,7 +12,12 @@ class YouTubeBackend:
     def __init__(self, credentials: Annotated[Credentials, "OAuth credentials for YouTube API"]):
         """Initialize the backend.
         Args: credentials: A Credentials object for OAuth authentication"""
-        self.youtube = build("youtube", "v3", credentials=credentials)
+        try:
+            self.youtube = build("youtube", "v3", credentials=credentials)
+        except Exception as e:
+            if "API has not been used" in str(e):
+                raise Exception("YouTube API is not enabled in your Google Cloud project. Please enable it at https://console.cloud.google.com/apis/library/youtube.googleapis.com")
+            raise
 
     def _execute_request(self, request):
         """Execute a YouTube API request."""

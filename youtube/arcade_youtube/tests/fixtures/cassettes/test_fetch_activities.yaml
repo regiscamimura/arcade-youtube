@@ -1,0 +1,86 @@
+interactions:
+- request:
+    body: null
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-length:
+      - '0'
+      user-agent:
+      - (gzip)
+      x-goog-api-client:
+      - gdcl/2.169.0 gl-python/3.13.3 cred-type/u
+    method: GET
+    uri: https://youtube.googleapis.com/youtube/v3/activities?part=snippet%2CcontentDetails&mine=true&maxResults=10&alt=json
+  response:
+    body:
+      string: !!binary |
+        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
+        7z6++w+BgWaAOT0AAA==
+    headers:
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Sun, 18 May 2025 17:24:21 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Origin
+      - X-Origin
+      - Referer
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - '0'
+    status:
+      code: 200
+      message: OK
+version: 1

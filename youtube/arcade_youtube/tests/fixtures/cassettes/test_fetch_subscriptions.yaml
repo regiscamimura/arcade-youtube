@@ -1,0 +1,78 @@
+interactions:
+- request:
+    body: null
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-length:
+      - '0'
+      user-agent:
+      - (gzip)
+      x-goog-api-client:
+      - gdcl/2.169.0 gl-python/3.13.3 cred-type/u
+    method: GET
+    uri: https://youtube.googleapis.com/youtube/v3/subscriptions?part=snippet&mine=true&maxResults=5&alt=json
+  response:
+    body:
+      string: !!binary |
+        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
+    headers:
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Sun, 18 May 2025 17:25:26 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Origin
+      - X-Origin
+      - Referer
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - '0'
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -1,0 +1,81 @@
+interactions:
+- request:
+    body: null
+    headers:
+      accept:
+      - application/json
+      accept-encoding:
+      - gzip, deflate
+      content-length:
+      - '0'
+      user-agent:
+      - (gzip)
+      x-goog-api-client:
+      - gdcl/2.169.0 gl-python/3.13.3 cred-type/u
+    method: GET
+    uri: https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails&id=dQw4w9WgXcQ&alt=json
+  response:
+    body:
+      string: !!binary |
+        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
+        VoWyv0V63m/9H6Ue8hMpHgAA
+    headers:
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json; charset=UTF-8
+      Date:
+      - Sun, 18 May 2025 17:25:26 GMT
+      Server:
+      - scaffolding on HTTPServer2
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Origin
+      - X-Origin
+      - Referer
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - '0'
+    status:
+      code: 200
+      message: OK
+version: 1

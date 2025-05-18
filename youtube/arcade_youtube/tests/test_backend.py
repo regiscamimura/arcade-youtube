@@ -7,31 +7,39 @@ from dotenv import load_dotenv
 from google.oauth2.credentials import Credentials
 
 from arcade_youtube.core.backend import YouTubeBackend
+from arcade_youtube.core.constants import YOUTUBE_READONLY_SCOPE
 
 # Load environment variables from .env file
-load_dotenv(Path(__file__).parent / ".env")
+env_path = Path(__file__).parent / ".env"
+load_dotenv(env_path)
 
 # Configure VCR
 my_vcr = vcr.VCR(
-    cassette_library_dir="fixtures/cassettes",
+    cassette_library_dir=str(Path(__file__).parent / "fixtures" / "cassettes"),
     record_mode="once",
     match_on=["uri", "method"],
     filter_headers=["Authorization"],
-    decode_compressed_response=True,
 )
 
 
 @pytest.fixture
 def credentials():
     """Provide OAuth credentials for testing."""
-    return Credentials(
-        token=os.getenv("YOUTUBE_ACCESS_TOKEN"),
-        refresh_token=os.getenv("YOUTUBE_REFRESH_TOKEN"),
-        token_uri="https://oauth2.googleapis.com/token",
-        client_id=os.getenv("YOUTUBE_CLIENT_ID"),
-        client_secret=os.getenv("YOUTUBE_CLIENT_SECRET"),
-        scopes=["https://www.googleapis.com/auth/youtube.readonly"],
+    creds = Credentials(
+        token=os.getenv("YOUTUBE_TEST_TOKEN"),
+        refresh_token=os.getenv("YOUTUBE_TEST_REFRESH_TOKEN"),
+        token_uri=os.getenv("YOUTUBE_TEST_TOKEN_URI"),
+        client_id=os.getenv("YOUTUBE_TEST_CLIENT_ID"),
+        client_secret=os.getenv("YOUTUBE_TEST_CLIENT_SECRET"),
+        scopes=[YOUTUBE_READONLY_SCOPE],
     )
+
+    # If token is expired, refresh it and update env var
+    if creds.expired:
+        creds.refresh(None)
+        os.environ["YOUTUBE_TEST_TOKEN"] = creds.token
+    
+    return creds
 
 
 @pytest.fixture
@@ -51,7 +59,9 @@ def test_fetch_activities(backend):
         activity = result[0]
         assert "snippet" in activity
         assert "contentDetails" in activity
-        assert "watch" in activity["contentDetails"]
+        assert "playlistItem" in activity["contentDetails"]
+        assert "resourceId" in activity["contentDetails"]["playlistItem"]
+        assert "videoId" in activity["contentDetails"]["playlistItem"]["resourceId"]
 
 
 @my_vcr.use_cassette("test_fetch_subscriptions.yaml")

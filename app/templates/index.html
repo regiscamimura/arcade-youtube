@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Content Monitor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body class="bg-gray-100">
+    <div id="app" class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold mb-8 text-center text-gray-800">YouTube Content Monitor</h1>
+        
+        <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-md p-6">
+            <div v-if="loading" class="text-center py-8">
+                <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto"></div>
+                <p class="mt-4 text-gray-600">Analyzing video content...</p>
+            </div>
+            
+            <div v-else-if="error" class="text-center py-8">
+                <div class="text-red-500 mb-4">
+                    <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                    </svg>
+                </div>
+                <p class="text-red-600">[[ error ]]</p>
+            </div>
+            
+            <div v-else-if="analysis" class="space-y-6">
+                <div class="border-b pb-4">
+                    <h2 class="text-xl font-semibold text-gray-800">[[ analysis.title ]]</h2>
+                    <p class="text-gray-600">Channel: [[ analysis.channel ]]</p>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-blue-800">Educational Score</h3>
+                        <p class="text-3xl font-bold text-blue-600">[[ analysis.ai_analysis.educational_score ]]/10</p>
+                    </div>
+                    
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <h3 class="font-semibold text-green-800">Learning Potential</h3>
+                        <p class="text-xl font-bold text-green-600">[[ analysis.ai_analysis.learning_potential ]]</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-gray-800 mb-2">Topics</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span v-for="topic in analysis.ai_analysis.topics" 
+                              class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
+                            [[ topic ]]
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-gray-800 mb-2">Age Appropriateness</h3>
+                    <p class="text-lg">[[ analysis.ai_analysis.age_appropriateness ]]</p>
+                </div>
+                
+                <div v-if="analysis.ai_analysis.concerns.length" class="bg-yellow-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-yellow-800 mb-2">Concerns</h3>
+                    <ul class="list-disc list-inside text-yellow-700">
+                        <li v-for="concern in analysis.ai_analysis.concerns">[[ concern ]]</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-gray-800 mb-2">Analysis</h3>
+                    <p class="text-gray-700">[[ analysis.ai_analysis.explanation ]]</p>
+                </div>
+            </div>
+            
+            <div v-else class="text-center py-8">
+                <button @click="analyzeLatestVideo" 
+                        class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors">
+                    Analyze Latest Video
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const { createApp } = Vue
+        
+        createApp({
+            delimiters: ['[[', ']]'],
+            data() {
+                return {
+                    loading: false,
+                    error: null,
+                    analysis: null
+                }
+            },
+            methods: {
+                async analyzeLatestVideo() {
+                    this.loading = true
+                    this.error = null
+                    this.analysis = null
+                    
+                    try {
+                        const response = await fetch('/api/analyze-latest')
+                        const data = await response.json()
+                        
+                        if (data.error) {
+                            this.error = data.error
+                        } else {
+                            this.analysis = data
+                        }
+                    } catch (err) {
+                        this.error = 'Failed to analyze video. Please try again.'
+                    } finally {
+                        this.loading = false
+                    }
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html> 
