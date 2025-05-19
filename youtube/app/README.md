@@ -34,6 +34,9 @@ A sample application demonstrating how to use the Arcade YouTube Toolkit to crea
      python get_tokens.py path/to/client_secrets.json
      ```
 
+3. Set up Arcade.dev credentials:
+   - Sign up or sign in to arcade.dev and grab an API key there. Add an ARCADE_API_KEY variable to the .env file, as shown in the .env.example. It's needed for using AI tools, and that's done with OpenAI but through Arcade.dev platform.
+
 3. Start the dashboard:
 ```bash
 # Using uvicorn (recommended)
