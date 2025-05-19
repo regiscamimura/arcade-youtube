@@ -19,18 +19,6 @@ The core toolkit for tracking and analyzing YouTube activity. This package provi
 - Analyze search activity and content interests
 - Educational content analysis and categorization
 
-## Usage
-
-```python
-from arcade_youtube import YouTubeTracker
-
-# Initialize the tracker
-tracker = YouTubeTracker()
-
-# Start monitoring YouTube activity
-tracker.start_monitoring()
-```
-
 ## API Reference
 
 ### YouTubeTracker
@@ -55,9 +43,9 @@ The toolkit provides several methods for interacting with YouTube data:
 
 - `get_watch_history(credentials, limit=5)`: Retrieves recent watch history, including both direct video watches and playlist views. Returns a list of formatted activity records.
 - `get_subscriptions(credentials, limit=5)`: Fetches recent channel subscriptions, returning a formatted list of subscribed channels.
-- `get_watch_time_stats(credentials)`: Calculates detailed watch time statistics including total watch time in seconds and hours, video count, and average video duration.
+- `get_watch_time_stats(credentials)`: Calculates detailed watch time statistics, including total watch time in seconds and hours, video count, and average video duration.
 
-All methods require Google OAuth credentials with YouTube read-only scope.
+All methods require Google OAuth credentials with the YouTube read-only scope.
 
 ## Development
 
@@ -71,7 +59,3 @@ When adding new features:
 1. Add tests using vcrpy
 2. Update the API documentation
 3. Follow the existing code style
-
-## License
-
-MIT License - see the main [LICENSE](../LICENSE) file for details. 
