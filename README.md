@@ -10,11 +10,11 @@ Think of it as a proof of concept - a glimpse into how AI could help parents nav
 
 Check out this quick demo to see the toolkit in action:
 
-![](https://github.com/arcade-dev/arcade/blob/main/assets/videos/demo.mp4)
+https://github.com/user-attachments/assets/907eaa6d-c53e-49ab-9865-137fb7b87980
 
 ## 🎯 Purpose
 
-Let's be clear: no AI or robot can replace the role of parents in guiding their children's digital journey. This experimental tool is designed to be your digital companion - helping you understand your child's online universe and make informed decisions about their YouTube experience.
+No robot can replace parents' role in guiding their children's digital journey. This experimental tool is designed to be your digital companion, helping you understand your child's online universe and make informed decisions about their YouTube experience.
 
 We believe that YouTube can be a fantastic platform for learning and entertainment when used mindfully. This experimental tool explores how we can:
 
