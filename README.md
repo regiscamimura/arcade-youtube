@@ -6,6 +6,12 @@ Arcade YouTube Insights is an experimental project that demonstrates how Python,
 
 Think of it as a proof of concept - a glimpse into how AI could help parents navigate the complex world of children's digital content consumption. It's not a complete solution, but rather a starting point for exploring how we can make YouTube a more meaningful and educational experience for kids.
 
+## Demo Video 🎥
+
+Check out this quick demo to see the toolkit in action:
+
+https://github.com/arcade-dev/arcade/blob/main/assets/videos/demo.mp4
+
 ## 🎯 Purpose
 
 Let's be clear: no AI or robot can replace the role of parents in guiding their children's digital journey. This experimental tool is designed to be your digital companion - helping you understand your child's online universe and make informed decisions about their YouTube experience.
