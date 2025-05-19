@@ -10,7 +10,7 @@ Think of it as a proof of concept - a glimpse into how AI could help parents nav
 
 Check out this quick demo to see the toolkit in action:
 
-https://github.com/arcade-dev/arcade/blob/main/assets/videos/demo.mp4
+![](https://github.com/arcade-dev/arcade/blob/main/assets/videos/demo.mp4)
 
 ## 🎯 Purpose
 
