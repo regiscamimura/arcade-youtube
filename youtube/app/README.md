@@ -45,22 +45,27 @@ python web_interface.py
 
 4. Access the dashboard at `http://localhost:8000`
 
-## Development
-
-### Project Structure
-
-- `templates/` - Vue.js templates and components
-- `web_interface.py` - FastAPI application
-- `content_monitor.py` - Content analysis logic
-
-### Adding Features
-
-When adding new features:
-1. Update the FastAPI endpoints in `web_interface.py`
-2. Add corresponding Vue.js components
-3. Implement content analysis in `content_monitor.py`
-
 ## API Documentation
+
+The API documentation is automatically generated and available in two formats:
+
+1. **Swagger UI** - Interactive API documentation with testing capabilities
+   - Access at: `http://localhost:8000/docs`
+   - Features:
+     - Interactive API testing
+     - Request/response examples
+     - Schema validation
+     - Authentication details
+
+2. **ReDoc** - Beautiful, responsive API documentation
+   - Access at: `http://localhost:8000/redoc`
+   - Features:
+     - Clean, modern interface
+     - Detailed schema information
+     - Search functionality
+     - Mobile-friendly design
+
+The documentation is generated from the code using FastAPI's built-in OpenAPI support, ensuring it's always up-to-date with the actual implementation.
 
 ### Endpoints
 
@@ -97,6 +102,21 @@ Requires YouTube OAuth credentials configured via environment variables:
 - `YOUTUBE_TOKEN_URI`
 - `YOUTUBE_CLIENT_ID`
 - `YOUTUBE_CLIENT_SECRET`
+
+## Development
+
+### Project Structure
+
+- `templates/` - Vue.js templates and components
+- `web_interface.py` - FastAPI application
+- `content_monitor.py` - Content analysis logic
+
+### Adding Features
+
+When adding new features:
+1. Update the FastAPI endpoints in `web_interface.py`
+2. Add corresponding Vue.js components
+3. Implement content analysis in `content_monitor.py`
 
 ## Future Enhancements
 
