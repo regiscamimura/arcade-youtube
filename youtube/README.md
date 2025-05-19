@@ -51,8 +51,6 @@ cd youtube
 poetry install
 ```
 
-> 💡 **Note**: This will be available via `pip install arcade_youtube` once it's integrated into the Arcade tools. For now, you'll need to use Poetry to manage the dependencies.
-
 ## Setting Up Your Environment Variables 🔑
 
 Before you can start spying on YouTube activity (in a totally non-creepy way), you'll need to set up your Google API credentials. Here's how:
@@ -97,7 +95,7 @@ The test suite uses `vcrpy` to record and replay HTTP interactions. This approac
 
 ### vcrpy vs pytest-mock
 
-While pytest-mock is a popular choice, we strongly prefer vcrpy for this project. Here's why:
+While pytest-mock is a popular choice, I strongly prefer vcrpy for this project. Here's why:
 
 **Why I advocate for vcrpy:**
 - Real API responses ensure tests match production behavior exactly
